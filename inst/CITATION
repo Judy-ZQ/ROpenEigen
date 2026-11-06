@@ -1,0 +1,23 @@
+c(
+  bibentry(
+    bibtype = "Misc",
+    title   = "Eigen v3",
+    author  = c(person("Ga\u00ebl", "Guennebaud"),
+                person("Benoit", "Jacob")),
+    year    = "2010",
+    url     = "https://eigen.tuxfamily.org",
+    note    = "C++ template library for linear algebra"
+  ),
+  bibentry(
+    bibtype  = "Article",
+    title    = "Rcpp: Seamless R and C++ Integration",
+    author   = c(person("Dirk", "Eddelbuettel"),
+                 person("Romain", "Fran\u00e7ois")),
+    journal  = "Journal of Statistical Software",
+    year     = "2011",
+    volume   = "40",
+    number   = "8",
+    pages    = "1--18",
+    doi      = "10.18637/jss.v040.i08"
+  )
+)

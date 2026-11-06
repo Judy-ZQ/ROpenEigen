@@ -1,0 +1,33 @@
+Package: ROpenEigen
+Type: Package
+Title: R Bindings for Eigen 5
+Version: 0.2.0
+Authors@R: person("Qing", "Zhu", email = "20170458@alu.cqu.edu.cn",
+    role = c("aut", "cre"))
+Description: R interface to Eigen 5.  Dense matrices are exposed as
+    reference objects that live on the C++ side, so a decomposition is
+    computed once and reused rather than refactorised on every call.  Base R
+    idioms -- matrix multiplication, solve(), determinant(), t(), the
+    arithmetic and math groups and subscripting -- dispatch on those objects
+    directly; the operations that are not generics in base R, such as det(),
+    norm(), diag() and trace(), have 'eigen_'-prefixed equivalents.  The
+    Eigen decompositions (Cholesky, LU, QR, SVD, eigenvalue) are available
+    both as objects with methods and as one-shot functions.  Real sparse
+    matrices are supported too, with sparse LU, Cholesky, QR, conjugate
+    gradient, BiCGSTAB, GMRES, MINRES, DGMRES, IDRS and least-squares
+    solvers that never densify the matrix.  Rotations, axis-angle vectors,
+    quaternions and affine transforms from the Geometry module are wrapped
+    as reference objects, and the SpecialFunctions and MatrixFunctions
+    modules are exposed through 'eigen_'-prefixed elementwise and matrix
+    functions.
+License: GPL-2
+Imports: Rcpp, stats, methods
+Suggests: MASS, Matrix, ROpenCV
+LinkingTo: Rcpp
+Encoding: UTF-8
+URL: https://github.com/Judy-ZQ/ROpenEigen
+BugReports: https://github.com/Judy-ZQ/ROpenEigen/issues
+SystemRequirements: C++17
+NeedsCompilation: yes
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.1.1

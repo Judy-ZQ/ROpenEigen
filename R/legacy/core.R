@@ -1,0 +1,4 @@
+
+PermutationMatrix = function(...){
+  new(EigenPermutationMatrixd,...)
+}

@@ -1,0 +1,27 @@
+# 编译产物
+*.o
+*.dll
+*.so
+*.dylib
+src/tmp.def
+
+# 构建与检查输出
+*.Rcheck/
+*.tar.gz
+.Rproj.user/
+.vs/
+.Rhistory
+.RData
+.Ruserdata
+
+# 本地工作目录
+.workbuddy-ai/
+/.workbuddy/
+
+# 旧草稿、配置备份与本地实验产出（不属于包源码）
+/01-preparelib.Rmd
+/.Rbuildignore.bak
+/*.png
+/*.zip
+/imgfigs/
+/inst/labs-image/imgfigs/

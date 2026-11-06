@@ -1,0 +1,20 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.vs$
+^\.Rcheck$
+^ROpenEigen\.Rcheck$
+^01-preparelib\.Rmd$
+^test$
+^.*\.png$
+^src/legacy$
+^R/legacy$
+^\.workbuddy-ai$
+
+# 实验跑出来的图（^.*\.png$ 已经挡住文件本身，这条连空目录一起挡掉）
+^inst/labs-image/imgfigs$
+
+# 构建残留，不应进 tarball。正常情况下 R CMD build 会自己 clean src，
+# 这几条只是兜底（受限环境里 make 删临时文件可能被拦下）。
+^src/.*\.o$
+^src/.*\.dll$
+^src/.*\.def$

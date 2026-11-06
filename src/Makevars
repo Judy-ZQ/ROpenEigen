@@ -1,0 +1,25 @@
+# ROpenEigen 的编译设置
+#
+# -I../inst/include 把随包安装的 Eigen 5.0.1 挂上搜索路径，这样
+# #include <Eigen/Dense>、#include <unsupported/Eigen/SpecialFunctions>
+# 和 #include <ROpenEigen.h> 都能解析。
+# Eigen 是 header-only 的，不需要任何 -l 链接库。
+#
+# CXX17：Eigen 5 自身只要求 C++14，但本包用了 if constexpr
+# （reigen_ops.cpp 用它把 min/max 从复数实例化里剔除）与 std::decay_t，
+# 所以仍按 C++17 编译。
+
+PKG_CXXFLAGS = -I../inst/include
+CXX_STD = CXX17
+
+# 不要放 src/ROpenEigen-win.def
+# -----------------------------
+# R 在 Windows 上链接 DLL 时，会先用 nm 把目标文件的符号导出成 tmp.def，
+# 链接完再删掉（见 $(R_HOME)/share/make/winshlib.mk）。winshlib.mk 留了个
+# 口子：只要 $(BASE)-win.def 存在就直接拿它链接、跳过 tmp.def。
+#
+# 千万不要用这个口子。手写的导出清单是上一版构建的快照，一旦模板签名变了
+# （例如给 wrap_obj 改了形参或返回类型），mangled name 就对不上，链接会报
+#   ld.exe: cannot export _ZN6reigen8wrap_obj...: symbol not defined
+# 而且一旦 [[Rcpp::export]] 新增入口而忘了重新生成，新符号不会导出，
+# 运行期才在 .Call 处报 symbol not found。让 R 自己生成 tmp.def 才是对的。
